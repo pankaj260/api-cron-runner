@@ -1,0 +1,14 @@
+name: API Cron Job
+
+on:
+  schedule:
+    - cron: '*/2 * * * *'  # Runs every 2 minutes (use your desired frequency)
+  workflow_dispatch:       # Optional: Allows manual trigger from GitHub UI
+
+jobs:
+  call-api:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Make GET request to your API
+      run: curl -s -o /dev/null -w "%{http_code}" http://f1124820.xsph.ru/index.php
